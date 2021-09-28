@@ -63,7 +63,7 @@ java -Dserver.port=8080 \
 
 ## 4. 持久化规则到nacos
 
-1、application.properties 添加配置
+1、application.properties 添加nacos配置
 
 ```properties
 sentinel.nacos.addr=localhost:8848
