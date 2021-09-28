@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
-
-<!--    <parent>-->
-<!--        <groupId>com.alibaba.csp</groupId>-->
-<!--        <artifactId>sentinel-parent</artifactId>-->
-<!--        -->
-<!--    </parent>-->
-
+    <groupId>com.alibaba.csp</groupId>
     <artifactId>sentinel-dashboard</artifactId>
     <packaging>jar</packaging>
+    <version>1.8.2</version>
 
     <properties>
         <resource.delimiter>@</resource.delimiter>
         <spring.boot.version>2.0.5.RELEASE</spring.boot.version>
+        <fastjson.version>1.2.75</fastjson.version>
+        <mockito.version>2.28.2</mockito.version>
+        <powermock.version>2.0.0</powermock.version>
         <curator.version>4.0.1</curator.version>
         <sentinel.version>1.8.2</sentinel.version>
         <maven.deploy.version>2.8.2</maven.deploy.version>
@@ -24,6 +23,7 @@
         <dependency>
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-core</artifactId>
+            <version>${sentinel.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.csp</groupId>
@@ -33,6 +33,7 @@
         <dependency>
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-transport-simple-http</artifactId>
+            <version>${sentinel.version}</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.csp</groupId>
@@ -97,12 +98,14 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
         </dependency>
 
         <!-- for Nacos rule publisher sample -->
         <dependency>
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-datasource-nacos</artifactId>
+            <version>${sentinel.version}</version>
         </dependency>
         <!-- for Apollo rule publisher sample -->
         <dependency>
@@ -123,11 +126,13 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>${powermock.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -178,6 +183,14 @@
                 <version>${maven.deploy.version}</version>
                 <configuration>
                     <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
